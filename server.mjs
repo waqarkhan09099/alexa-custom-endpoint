@@ -73,7 +73,7 @@ const ShowMenuIntentHandler = {
   },
   handle(handlerInput) {
     const menu=['zinger burgur','fries','pizza','doritos','lazania','gola kabab']
-    const totalmenu=menu.map(data=> `,${data}`)
+    const totalmenu=menu.map(data=> data)
 
     return handlerInput.responseBuilder
       .speak(`our menu have ${totalmenu}`)
