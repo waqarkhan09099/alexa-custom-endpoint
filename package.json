@@ -13,6 +13,7 @@
   "dependencies": {
     "ask-sdk-core": "^2.11.0",
     "ask-sdk-express-adapter": "^2.11.0",
+    "ask-sdk-model": "^1.37.1",
     "express": "^4.17.2",
     "morgan": "^1.10.0",
     "ngrok": "^4.2.2"
