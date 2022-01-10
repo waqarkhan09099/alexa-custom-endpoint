@@ -66,12 +66,29 @@ const WikiIntroHandler = {
   }
 };
 
+const ShowMenuIntentHandler = {
+  canHandle(handlerInput) {
+    return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+      && Alexa.getIntentName(handlerInput.requestEnvelope) === 'ShowMenuIntent';
+  },
+  handle(handlerInput) {
+    const menu=['zinger burgur','fries','pizza','doritos','lazania','gola kabab']
+    const totalmenu=menu.map(data=> `,${data}`)
+
+    return handlerInput.responseBuilder
+      .speak(`our menu have ${totalmenu}`)
+      .reprompt(`our menu have ${totalmenu}`)
+      //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
+      .getResponse();
+  }
+};
+
 const skillBuilder = SkillBuilders.custom()
   .addRequestHandlers(
     LaunchRequestHandler,
     WikiIntroHandler,
-    ErrorHandler,
     HelloWorldIntentHandler,
+    ShowMenuIntentHandler,
   )
   .addErrorHandlers(
     ErrorHandler
